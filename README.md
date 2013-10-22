@@ -8,23 +8,23 @@ Here we try to prived simple steps to get with a simple example developed in awa
 Steps to reproduce this example
 -------------------------------
 
-- Create project
-  `rails new ror_gl --skip-test-unit`
-  The --skip-test-unit option to the rails command tells Rails not to generate a test directory associated with the default Test::Unit framework. This is not because we won’t be writing tests, is just because we will be using RSpec.
+- Create project with `rails new ror_gl --skip-test-unit`.
+The --skip-test-unit option to the rails command tells Rails not to generate a test directory associated with the default Test::Unit framework. This is not because we won’t be writing tests, is just because we will be using RSpec.
 
-- Update necessary gems
-  At this point we need to get the [Gemfile updated][1] to include the required gems. Once we have so we need to run following commands:
+- Update the [Gemfile][1] to include the required gems. Once we have so we need to run following commands:
+  
   `bundle install --without production`
+
   `bundle update`
+
   `bundle install`
-  From now on we won't need the _--without production_ fleag any more, since it's a remembered option and bundle will handle it for us.
 
-- Improve security
-  Also, we may want to update [_config/initializers/secret_token.rb_][2] at this early stage. This is not a must, but because it’s a potentially serious security issue I feel it’s important to include it even at this early stage.
+  From now on we won't need the _--without production_ flag any more, since it's a _remembered option_ and bundle will do it for us.
 
-- Config RSpec
-  `rails generate rspec:install`
-  This configures Rails to use RSpec in place of Test::Unit.
+- Improve security by updating the [_secret\_token.rb_][2] file. This is not a must, but because it’s a potentially serious security issue I feel it’s important to include it even at this early stage.
+
+- Config RSpec with `rails generate rspec:install`.
+This configures Rails to use RSpec in place of Test::Unit.
 
 
 [1]: https://github.com/agpelliza/ror_gl/blob/master/Gemfile
