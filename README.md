@@ -21,7 +21,7 @@ The --skip-test-unit option to the rails command tells Rails not to generate a t
 
   From now on we won't need the _--without production_ flag any more, since it's a _remembered option_ and bundle will do it for us.
 
-- Improve security by updating the [_secret\_token.rb_][2] file. This is not a must, but because it’s a potentially serious security issue I feel it’s important to include it even at this early stage.
+- Improve security by updating the [*secret_token.rb*][2] file. This is not a must, but because it’s a potentially serious security issue I feel it’s important to include it even at this early stage.
 
 - Config RSpec with `rails generate rspec:install`.
 This configures Rails to use RSpec in place of Test::Unit.
