@@ -26,6 +26,30 @@ The --skip-test-unit option to the rails command tells Rails not to generate a t
 - Config RSpec with `rails generate rspec:install`.
 This configures Rails to use RSpec in place of Test::Unit.
 
+- Initialize Guard `bundle exec guard init rspec`
+- Update [Guardfile][3]
+- Run Guard `bundle exec guard` and run the tests in the console `all rspec`
+- Install `gem install rb-fsevent`
+- Create [database.yml][4]
+- Create db ` bundle exec rake db:create`
+- Create integration test for tasks`rails g integration_test tasks`
+- Run Guard `bundle exec guard` and run the tests in the console `all rspec`
+- Add resources :tasks to [routes][5]
+- Run Guard `bundle exec guard` and run the tests in the console `all rspec`
+- Change spec/request to spec/features for capybara
+- Run Guard `bundle exec guard` and run the tests in the console `all rspec`
+- Create the controller for tasks `rails g controller Tasks index`, along with the index views
+- Add `root tasks#index` to the routes.rb file
+- Create the model `rails g model Task task:string`
+- Migrate the db `rake db:migrate`
+- Migrate the db `rake db:migrate RAILS_ENV=test`
+- Run Guard `bundle exec guard` and run the tests in the console `all rspec`
+- Update tasks_spec.rb
+- Update view
+- Update tasks_spec.rb
+- Update controller
+
+
 
 [1]: https://github.com/agpelliza/ror_gl/blob/master/Gemfile
 [2]: https://github.com/agpelliza/ror_gl/blob/master/config/initializers/secret_token.rb
