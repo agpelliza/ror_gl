@@ -60,7 +60,7 @@ This configures Rails to use RSpec in place of Test::Unit.
 Pasos Posta
 -----------
 - rails new proy_name --skip-test-unit
-- set Gemfile and run `bundle update`, `bundle install`
+- update Gemfile and run `bundle update`, `bundle install`
 - update secret_token.rb with a dinamic hash
 - rails generate rspec:install
 - bundle exec guard init rspec
@@ -68,16 +68,23 @@ Pasos Posta
 - bundle exec guard init spork
 - config spork at spec_helper
 - config capybara at spec_helper
-- create database.yml
-- bundle exec guard :with all rspec
+- create config/database.yml
+- bundle exec guard
+  - all rspec
 - rails generate integration_test tasks
+- remove all generated directory specs but request directory
 - rails generate controller Tasks index
 - rails generate model Task task:string
+- bundle exec rake db:migrate
 - bundle exec rake db:migrate RAILS_ENV=test
 
-Keep this flow
+Start TDD
+---------
+_Keep this flow:_
+
+...
 - Update specs with new requirements
-- Update models, views & controllers to fit requirements and make tests pass
+- Update models, views, controllers & configs (routes) to fit requirements and make tests pass
 - Update specs..
-- Update models, views & controllers..
-- ...
+- Update models, views, controllers & configs (routes)..
+...
