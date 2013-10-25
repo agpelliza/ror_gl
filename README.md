@@ -53,3 +53,31 @@ This configures Rails to use RSpec in place of Test::Unit.
 
 [1]: https://github.com/agpelliza/ror_gl/blob/master/Gemfile
 [2]: https://github.com/agpelliza/ror_gl/blob/master/config/initializers/secret_token.rb
+
+
+
+
+Pasos Posta
+-----------
+- rails new proy_name --skip-test-unit
+- set Gemfile and run `bundle update`, `bundle install`
+- update secret_token.rb with a dinamic hash
+- rails generate rspec:install
+- bundle exec guard init rspec
+- bundle exec spork --bootstrap
+- bundle exec guard init spork
+- config spork at spec_helper
+- config capybara at spec_helper
+- create database.yml
+- bundle exec guard :with all rspec
+- rails generate integration_test tasks
+- rails generate controller Tasks index
+- rails generate model Task task:string
+- bundle exec rake db:migrate RAILS_ENV=test
+
+Keep this flow
+- Update specs with new requirements
+- Update models, views & controllers to fit requirements and make tests pass
+- Update specs..
+- Update models, views & controllers..
+- ...
