@@ -88,3 +88,20 @@ _Keep this flow:_
 - Update specs..
 - Update models, views, controllers & configs (routes)..
 ...
+
+
+RVM, Ruby and Rails instalation steps:
+----------
+
+Prerequisites:
+We need install some staff before use Ruby on Rails.
+-sudo apt-get install openssl
+-sudo apt-get install nodejs (or the JS interpreter that you prefer)
+
+Steps for instalation:
+-user$ \curl -L https://get.rvm.io | bash -s stable
+-rvm list known (you could see the diferents version of ruby. Choose the version that you prefer)
+-rvm install 2.0.0 (you could choose another version)
+-rvm use 2.0.0
+-rvm gemset create your_gemset (it save the gems which you are working)
+-gem install rails
