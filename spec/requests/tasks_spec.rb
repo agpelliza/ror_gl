@@ -3,42 +3,44 @@ require 'spec_helper'
 describe "Tasks" do
   
   before do
-    @task = Task.new :task => 'complete this example'
-    @task.save
+    @task = Task.create :task => 'First task'
   end
 
   describe "GET /tasks" do
-    it "displays some tasks" do
+    it "should have the content 'TODO List'" do
       visit tasks_path
-      expect(page).to have_content 'complete this example'
+      expect(page).to have_content('TODO List')
     end
 
-    it "creates a new task" do
+    it "should display some tasks" do
       visit tasks_path
-      fill_in 'Task', :with => 'update this example'
+      expect(page).to have_content 'First task'
+    end
+
+    it "should create a new task" do
+      visit tasks_path
+      fill_in 'Task', :with => 'Second task'
       click_button 'Create Task'
 
       current_path.should == tasks_path
-      expect(page).to have_content 'update this example'
+      expect(page).to have_content 'Second task'
     end
   end
 
   describe "PUT /tasks" do
-    it "edits a task" do
+    it "should edit a task" do
       visit tasks_path
       click_link 'Edit'
 
       current_path.should == edit_task_path(@task)
 
-      find_field('Task').value.should == 'complete this example'
+      find_field('Task').value.should == 'First task'
 
       fill_in 'Task', :with => 'updated task'
       click_button 'Update Task'
 
       current_path.should == tasks_path
-
       expect(page).to have_content 'updated task'
-
     end
 
     it "should not update an empty task" do
@@ -58,7 +60,8 @@ describe "Tasks" do
       visit tasks_path
       find("#task_#{@task.id}").click_link 'Delete'
       expect(page).to have_content 'Task has been deleted'
-      expect(page).to have_no_content 'complete this example'
+      expect(page).to have_no_content 'First task'
     end
   end
+
 end

@@ -5,9 +5,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(task_params)
-    @task.save
-    
+    @task = Task.create(task_params)
     redirect_to :back
   end
 

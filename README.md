@@ -107,3 +107,81 @@ We need install some staff before use Ruby on Rails.
 - rvm use 2.0.0
 - rvm gemset create your_gemset (it save the gems which you are working)
 - gem install rails
+
+
+
+
+
+Other Steps
+-----------
+
+Steps
+=====
+Environment
+-----------
+
+- 
+
+Sample
+------
+
+- rails new geek_lunch --skip-test-unit
+- cd geek_lunch
+- cp -f ../machete/Gemfile .
+- bundle install --without production
+- bundle update
+- bundle install
+- cp -f ../machete/.gitignore .
+- cp -f ../machete/config/initializers/secret_token.rb config/initializers/secret_token.rb
+- rails generate rspec:install
+- git init
+- git add .
+- git commit -m "Initial commit"
+- git mv README.rdoc README.md
+- git commit -am "Improve the README"
+- git remote add origin https://github.com/agpelliza/machete.git
+- git push -u origin master
+- git config --global push.default simple
+- heroku create
+- git push heroku master
+- heroku run rake db:migrate
+- git checkout -b tasks
+- rails generate controller Tasks index --no-test-framework
+- git add .
+- git commit -m "Add a Tasks controller"
+- rails generate integration_test tasks
+- # update spec/spec_helper.rb with capybara DSL
+- bundle exec rspec spec/requests/tasks_spec.rb
+- # update spec/requests/tasks_spec.rb to some real spec
+- # update config/routes.rb
+- git add .
+- git commit -m "Add a first test"
+- # update Gemfile for guard
+- bundle install
+- bundle exec guard init rspec
+- # update Guardfile
+- bundle exec guard
+- git add .
+- git commit -m "Guard config"
+- # update Gemfile for spork
+- bundle install
+- bundle update childprocess
+- bundle install
+- bundle exec spork --bootstrap
+- # update spec/spec_helper to start env in prefork
+- time bundle exec rspec spec/requests/tasks_spec.rb
+- bundle exec spork
+- time bundle exec rspec spec/requests/static_pages_spec.rb --drb (in a new console)
+- git add .
+- git commit -m "Spork config and test"
+- bundle exec guard init spork
+- # update Guardfile to integrate spork with guard
+- bundle exec guard
+- rails generate model Task task:string --no-test-framework
+- rake db:migrate RAILS_ENV=test
+- rake db:migrate
+- # start TDD flow
+
+
+
+
